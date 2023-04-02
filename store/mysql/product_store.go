@@ -13,3 +13,9 @@ func (s *Store) GetProductById(id string) (*entities.Product, error){
 	}
 	return &product, err 
 }
+
+func (s *Store) GetProducts() ([]*entities.Product, error){
+	var products []*entities.Product 
+	err := s.db.Find(&products).Error 
+	return products, err
+}
