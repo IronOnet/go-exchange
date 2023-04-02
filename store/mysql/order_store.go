@@ -78,7 +78,7 @@ func (s *Store) UpdateOrder(order *entities.Order) error{
 
 func (s *Store) UpdateOrderStatus(orderId int64, oldStatus, newStatus entities.OrderStatus) (bool, error){
 	var order *entities.Order 
-	err := s.db.Where("id=?", orderId).Where("status=?", oldStatus).Scan(&order).Error 
+	err := s.db.Where("id=?", orderId).Where("status=?", oldStatus).Find(&order).Error 
 	if err != nil{
 		return false, err
 	}

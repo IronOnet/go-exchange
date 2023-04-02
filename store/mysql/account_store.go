@@ -8,7 +8,7 @@ import (
 
 func (s *Store) GetAccount(userId int64, currency string) (*entities.Account, error) {
 	var account entities.Account
-	err := s.db.Where("user_id = ?", userId).Where("currency = ?", currency).Scan(&account).Error
+	err := s.db.Where("user_id = ?", userId).Where("currency = ?", currency).Find(&account).Error
 	if err == gorm.ErrRecordNotFound {
 		return nil, nil
 	}
