@@ -14,6 +14,14 @@ func (s *Store) GetLastFillByProductId(productId string) (*entities.Fill, error)
 	return &fill, err
 }
 
+func (s *Store) GetUnsettledFills(count int) ([]*entities.Fill, error) {
+	db := s.db.Where("settled =?", 0).Order("id ASC").Limit(count)
+
+	var fills []*entities.Fill
+	err := db.Find(&fills).Error
+	return fills, err
+}
+
 func (s *Store) GetUnsettledFillsByOrderId(orderId int64) ([]*entities.Fill, error) {
 	db := s.db.Where("settled = ?", 0).Where("order_id=?", orderId).Order("id ASC").Limit(100)
 

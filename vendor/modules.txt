@@ -1,0 +1,142 @@
+# github.com/BurntSushi/toml v0.3.1
+## explicit
+github.com/BurntSushi/toml
+# github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
+## explicit
+github.com/alecthomas/template
+github.com/alecthomas/template/parse
+# github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf
+## explicit
+github.com/alecthomas/units
+# github.com/dgrijalva/jwt-go v3.2.0+incompatible
+## explicit
+# github.com/go-mysql-org/go-mysql v1.7.0
+## explicit; go 1.16
+github.com/go-mysql-org/go-mysql/canal
+github.com/go-mysql-org/go-mysql/client
+github.com/go-mysql-org/go-mysql/dump
+github.com/go-mysql-org/go-mysql/mysql
+github.com/go-mysql-org/go-mysql/packet
+github.com/go-mysql-org/go-mysql/replication
+github.com/go-mysql-org/go-mysql/schema
+github.com/go-mysql-org/go-mysql/utils
+# github.com/go-redis/redis v6.15.9+incompatible
+## explicit
+github.com/go-redis/redis
+github.com/go-redis/redis/internal
+github.com/go-redis/redis/internal/consistenthash
+github.com/go-redis/redis/internal/hashtag
+github.com/go-redis/redis/internal/pool
+github.com/go-redis/redis/internal/proto
+github.com/go-redis/redis/internal/util
+# github.com/go-sql-driver/mysql v1.7.0
+## explicit; go 1.13
+github.com/go-sql-driver/mysql
+# github.com/golang-jwt/jwt/v5 v5.0.0-rc.2
+## explicit; go 1.18
+github.com/golang-jwt/jwt/v5
+# github.com/google/uuid v1.3.0
+## explicit
+github.com/google/uuid
+# github.com/jinzhu/inflection v1.0.0
+## explicit
+github.com/jinzhu/inflection
+# github.com/jinzhu/now v1.1.5
+## explicit; go 1.12
+github.com/jinzhu/now
+# github.com/konsorten/go-windows-terminal-sequences v1.0.1
+## explicit
+github.com/konsorten/go-windows-terminal-sequences
+# github.com/pingcap/errors v0.11.5-0.20210425183316-da1aaba5fb63
+## explicit; go 1.14
+github.com/pingcap/errors
+# github.com/pingcap/log v0.0.0-20210625125904-98ed8e2eb1c7
+## explicit; go 1.16
+github.com/pingcap/log
+# github.com/pingcap/tidb/parser v0.0.0-20221126021158-6b02a5d8ba7d
+## explicit; go 1.13
+github.com/pingcap/tidb/parser
+github.com/pingcap/tidb/parser/ast
+github.com/pingcap/tidb/parser/auth
+github.com/pingcap/tidb/parser/charset
+github.com/pingcap/tidb/parser/format
+github.com/pingcap/tidb/parser/model
+github.com/pingcap/tidb/parser/mysql
+github.com/pingcap/tidb/parser/opcode
+github.com/pingcap/tidb/parser/terror
+github.com/pingcap/tidb/parser/tidb
+github.com/pingcap/tidb/parser/types
+# github.com/prometheus/common v0.2.0
+## explicit
+github.com/prometheus/common/log
+# github.com/shopspring/decimal v1.3.1
+## explicit; go 1.13
+github.com/shopspring/decimal
+# github.com/siddontang/go v0.0.0-20180604090527-bdc77568d726
+## explicit
+github.com/siddontang/go/hack
+# github.com/siddontang/go-log v0.0.0-20190221022429-1e957dd83bed
+## explicit
+github.com/siddontang/go-log/log
+github.com/siddontang/go-log/loggers
+# github.com/sirupsen/logrus v1.2.0
+## explicit
+github.com/sirupsen/logrus
+# go.uber.org/atomic v1.7.0
+## explicit; go 1.13
+go.uber.org/atomic
+# go.uber.org/multierr v1.6.0
+## explicit; go 1.12
+go.uber.org/multierr
+# go.uber.org/zap v1.18.1
+## explicit; go 1.13
+go.uber.org/zap
+go.uber.org/zap/buffer
+go.uber.org/zap/internal/bufferpool
+go.uber.org/zap/internal/color
+go.uber.org/zap/internal/exit
+go.uber.org/zap/internal/ztest
+go.uber.org/zap/zapcore
+go.uber.org/zap/zaptest
+# golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+## explicit; go 1.11
+golang.org/x/crypto/ssh/terminal
+# golang.org/x/sys v0.0.0-20200930185726-fdedc70b468f
+## explicit; go 1.12
+golang.org/x/sys/internal/unsafeheader
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+golang.org/x/sys/windows/registry
+golang.org/x/sys/windows/svc/eventlog
+# golang.org/x/text v0.3.6
+## explicit; go 1.11
+golang.org/x/text/encoding
+golang.org/x/text/encoding/charmap
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/japanese
+golang.org/x/text/encoding/korean
+golang.org/x/text/encoding/simplifiedchinese
+golang.org/x/text/encoding/traditionalchinese
+golang.org/x/text/encoding/unicode
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/runes
+golang.org/x/text/transform
+# gopkg.in/alecthomas/kingpin.v2 v2.2.6
+## explicit
+gopkg.in/alecthomas/kingpin.v2
+# gopkg.in/natefinch/lumberjack.v2 v2.0.0
+## explicit
+gopkg.in/natefinch/lumberjack.v2
+# gorm.io/driver/mysql v1.4.7
+## explicit; go 1.14
+gorm.io/driver/mysql
+# gorm.io/gorm v1.24.6
+## explicit; go 1.16
+gorm.io/gorm
+gorm.io/gorm/callbacks
+gorm.io/gorm/clause
+gorm.io/gorm/logger
+gorm.io/gorm/migrator
+gorm.io/gorm/schema
+gorm.io/gorm/utils

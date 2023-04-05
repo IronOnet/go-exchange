@@ -24,6 +24,8 @@ type Fill struct {
 	Settled   bool            `json:"settled"`
 	Side      Side            `json:"side"`
 	Done      bool            `json:"done"`
-	LogOffset int64
-	LogSeq    int64
+
+	DoneReason DoneReason `json:"done_reason"`
+	LogOffset  int64
+	LogSeq     int64
 }

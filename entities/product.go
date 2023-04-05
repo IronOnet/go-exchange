@@ -14,5 +14,6 @@ type Product struct {
 	BaseMaxSize    decimal.Decimal
 	QuoteMinSize   decimal.Decimal
 	BaseScale      int32
+	QuoteScale     int32
 	QuoteIncrement float64
 }
