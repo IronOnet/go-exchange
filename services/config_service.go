@@ -1,10 +1,10 @@
-package services 
+package services
 
 import (
-	"github.com/irononet/go-exchange/entities" 
+	"github.com/irononet/go-exchange/entities"
 	"github.com/irononet/go-exchange/store/mysql"
 )
 
-func GetConfigs() ([]*entities.Config, error){
+func GetConfigs() ([]*entities.Config, error) {
 	return mysql.SharedStore().GetConfigs()
 }
