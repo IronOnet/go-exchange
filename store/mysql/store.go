@@ -7,7 +7,8 @@ import (
 	"github.com/irononet/go-exchange/conf"
 	"github.com/irononet/go-exchange/entities"
 	"github.com/irononet/go-exchange/store"
-	"github.com/prometheus/common/log"
+	//log "github.com/prometheus/common"
+	"github.com/siddontang/go-log/log"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -60,6 +61,7 @@ func initDb() error {
 
 		for _, table := range tables {
 			log.Infof("migrating database, table :%v", reflect.TypeOf(table))
+			//log.Infof("migating database, table: %v", reflect.TypeOf(table))
 			if err = gexDB.AutoMigrate(table); err != nil {
 				return err
 			}

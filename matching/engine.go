@@ -50,7 +50,7 @@ func NewEngine(product *entities.Product, orderReader OrderReader, logStore LogS
 		OrderBook:            NewOrderBook(product),
 		LogCh:                make(chan Log, 10000),
 		OrderCh:              make(chan *OffsetOrder, 10000),
-		SnapshotReqCh:     make(chan *Snapshot, 32),
+		SnapshotReqCh:        make(chan *Snapshot, 32),
 		SnapshotApproveReqCh: make(chan *Snapshot, 32),
 		SnapshotCh:           make(chan *Snapshot, 32),
 		SnapShotStore:        snapshotStore,
@@ -70,9 +70,9 @@ func NewEngine(product *entities.Product, orderReader OrderReader, logStore LogS
 }
 
 func (e *Engine) Start() {
-	go e.runFetcher() 
-	go e.runApplier() 
-	go e.runCommitter() 
+	go e.runFetcher()
+	go e.runApplier()
+	go e.runCommitter()
 	go e.runShapshots()
 }
 
@@ -133,76 +133,76 @@ func (e *Engine) runApplier() {
 func (e *Engine) runCommitter() {
 	var seq = e.OrderBook.LogSeq
 	var pending *Snapshot = nil
-	var logs []interface{} 
+	var logs []interface{}
 
-	for{
-		select{
-		case log := <- e.LogCh: 
-			if log.GetSeq() <= seq{
-				logger.Infof("discard log seq=%v", seq) 
-				continue 
+	for {
+		select {
+		case log := <-e.LogCh:
+			if log.GetSeq() <= seq {
+				logger.Infof("discard log seq=%v", seq)
+				continue
 			}
 
-			seq = log.GetSeq() 
-			logs = append(logs, log) 
+			seq = log.GetSeq()
+			logs = append(logs, log)
 
-			// chan is not empty and buffer is not full, continue read 
-			if len(e.LogCh) > 0 && len(logs) < 100{
-				continue 
+			// chan is not empty and buffer is not full, continue read
+			if len(e.LogCh) > 0 && len(logs) < 100 {
+				continue
 			}
 
-			// store log, clean buffer 
-			err := e.LogStore.Store(logs) 
-			if err != nil{
-				panic(err) 
+			// store log, clean buffer
+			err := e.LogStore.Store(logs)
+			if err != nil {
+				panic(err)
 			}
-			logs = nil 
+			logs = nil
 
-			// approve pending snapshot 
-			if pending != nil && seq >= pending.OrderBookSnapshot.LogSeq{
-				e.SnapshotCh <- pending 
-				pending = nil 
-			}
-
-		case snapshot := <- e.SnapshotApproveReqCh: 
-			if seq >= snapshot.OrderBookSnapshot.LogSeq{
-				e.SnapshotCh <- snapshot 
-				pending = nil 
-				continue 
+			// approve pending snapshot
+			if pending != nil && seq >= pending.OrderBookSnapshot.LogSeq {
+				e.SnapshotCh <- pending
+				pending = nil
 			}
 
-			if pending != nil{
-				logger.Infof("discard snapshot request (seq=%v), new one (seq=%v) received", 
-				pending.OrderBookSnapshot.LogSeq, snapshot.OrderBookSnapshot.LogSeq)
+		case snapshot := <-e.SnapshotApproveReqCh:
+			if seq >= snapshot.OrderBookSnapshot.LogSeq {
+				e.SnapshotCh <- snapshot
+				pending = nil
+				continue
 			}
-			pending = snapshot 
+
+			if pending != nil {
+				logger.Infof("discard snapshot request (seq=%v), new one (seq=%v) received",
+					pending.OrderBookSnapshot.LogSeq, snapshot.OrderBookSnapshot.LogSeq)
+			}
+			pending = snapshot
 		}
 	}
 }
 
-func (e *Engine) runShapshots(){
+func (e *Engine) runShapshots() {
 
-	orderOffset := e.OrderOffset 
+	orderOffset := e.OrderOffset
 
-	for{
-		select{
-		case <- time.After(30 * time.Second): 
-			// make a new snapshot request 
+	for {
+		select {
+		case <-time.After(30 * time.Second):
+			// make a new snapshot request
 			e.SnapshotReqCh <- &Snapshot{
-				OrderOffset: orderOffset, 
+				OrderOffset: orderOffset,
 			}
-		case snapshot := <- e.SnapshotCh: 
-			// store snapshot 
-			err := e.SnapShotStore.Store(snapshot) 
-			if err != nil{
-				logger.Warnf("store snapshot failed: %v", err) 
-				continue 
+		case snapshot := <-e.SnapshotCh:
+			// store snapshot
+			err := e.SnapShotStore.Store(snapshot)
+			if err != nil {
+				logger.Warnf("store snapshot failed: %v", err)
+				continue
 			}
-			logger.Infof("new snapshot stored :product=%v OrderOffset=%v LogSeq=%v", 
-			e.productId, snapshot.OrderOffset, snapshot.OrderBookSnapshot.LogSeq) 
+			logger.Infof("new snapshot stored :product=%v OrderOffset=%v LogSeq=%v",
+				e.productId, snapshot.OrderOffset, snapshot.OrderBookSnapshot.LogSeq)
 
-			// update offset for next snapshot request 
-			orderOffset = snapshot.OrderOffset 
+			// update offset for next snapshot request
+			orderOffset = snapshot.OrderOffset
 		}
 	}
 }

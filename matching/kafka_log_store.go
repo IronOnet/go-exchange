@@ -9,31 +9,31 @@ import (
 )
 
 type KafkaLogStore struct {
-	logWriter *kafka.Writer 
+	logWriter *kafka.Writer
 }
 
-func NewKafkaLogStore(productId string, brokers []string) *KafkaLogStore{
-	s := &KafkaLogStore{} 
+func NewKafkaLogStore(productId string, brokers []string) *KafkaLogStore {
+	s := &KafkaLogStore{}
 
 	s.logWriter = kafka.NewWriter(kafka.WriterConfig{
-		Brokers: brokers, 
-		Topic: topicBookMessagePrefix + productId, 
-		Balancer: &kafka.LeastBytes{}, 
+		Brokers:      brokers,
+		Topic:        topicBookMessagePrefix + productId,
+		Balancer:     &kafka.LeastBytes{},
 		BatchTimeout: 5 * time.Millisecond,
 	})
 
-	return s 
+	return s
 }
 
-func (s *KafkaLogStore) Store(logs []interface{}) error{
-	var messages []kafka.Message 
-	for _, log := range logs{
-		val, err := json.Marshal(log) 
-		if err != nil{
-			return err 
+func (s *KafkaLogStore) Store(logs []interface{}) error {
+	var messages []kafka.Message
+	for _, log := range logs {
+		val, err := json.Marshal(log)
+		if err != nil {
+			return err
 		}
 
-		messages = append(messages, kafka.Message{Value: val}) 
+		messages = append(messages, kafka.Message{Value: val})
 
 	}
 
