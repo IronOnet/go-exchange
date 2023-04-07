@@ -8,8 +8,8 @@ import (
 
 type Account struct {
 	gorm.Model
-	UserId   int64
-	Currency uuid.UUID
-	Inactive decimal.Decimal
-	Active   decimal.Decimal
+	UserId    int64
+	Currency  uuid.UUID
+	Available decimal.Decimal
+	Hold      decimal.Decimal
 }

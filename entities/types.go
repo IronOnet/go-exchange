@@ -33,6 +33,11 @@ func (s Side) String() string {
 
 type OrderType string
 
+const (
+	MARKET_ORDER OrderType = "MARKET"
+	LIMIT_ORDER  OrderType = "LIMIT"
+)
+
 func (t OrderType) String() string {
 	return string(t)
 }

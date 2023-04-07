@@ -1,0 +1,243 @@
+# github.com/BurntSushi/toml v0.3.1
+## explicit
+github.com/BurntSushi/toml
+# github.com/bytedance/sonic v1.8.0
+## explicit; go 1.15
+# github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311
+## explicit; go 1.15
+# github.com/emirpasic/gods v1.18.1
+## explicit; go 1.2
+github.com/emirpasic/gods/containers
+github.com/emirpasic/gods/maps
+github.com/emirpasic/gods/maps/treemap
+github.com/emirpasic/gods/trees
+github.com/emirpasic/gods/trees/redblacktree
+github.com/emirpasic/gods/utils
+# github.com/gin-contrib/sse v0.1.0
+## explicit; go 1.12
+# github.com/gin-gonic/gin v1.9.0
+## explicit; go 1.18
+# github.com/go-kit/log v0.2.1
+## explicit; go 1.17
+# github.com/go-logfmt/logfmt v0.5.1
+## explicit; go 1.17
+# github.com/go-mysql-org/go-mysql v1.7.0
+## explicit; go 1.16
+github.com/go-mysql-org/go-mysql/canal
+github.com/go-mysql-org/go-mysql/client
+github.com/go-mysql-org/go-mysql/dump
+github.com/go-mysql-org/go-mysql/mysql
+github.com/go-mysql-org/go-mysql/packet
+github.com/go-mysql-org/go-mysql/replication
+github.com/go-mysql-org/go-mysql/schema
+github.com/go-mysql-org/go-mysql/utils
+# github.com/go-playground/locales v0.14.1
+## explicit; go 1.17
+# github.com/go-playground/universal-translator v0.18.1
+## explicit; go 1.18
+# github.com/go-playground/validator/v10 v10.11.2
+## explicit; go 1.18
+# github.com/go-redis/redis v6.15.9+incompatible
+## explicit
+github.com/go-redis/redis
+github.com/go-redis/redis/internal
+github.com/go-redis/redis/internal/consistenthash
+github.com/go-redis/redis/internal/hashtag
+github.com/go-redis/redis/internal/pool
+github.com/go-redis/redis/internal/proto
+github.com/go-redis/redis/internal/util
+# github.com/go-sql-driver/mysql v1.7.0
+## explicit; go 1.13
+github.com/go-sql-driver/mysql
+# github.com/goccy/go-json v0.10.0
+## explicit; go 1.12
+# github.com/golang-jwt/jwt/v5 v5.0.0-rc.2
+## explicit; go 1.18
+github.com/golang-jwt/jwt/v5
+# github.com/google/uuid v1.3.0
+## explicit
+github.com/google/uuid
+# github.com/gorilla/websocket v1.5.0
+## explicit; go 1.12
+# github.com/jinzhu/inflection v1.0.0
+## explicit
+github.com/jinzhu/inflection
+# github.com/jinzhu/now v1.1.5
+## explicit; go 1.12
+github.com/jinzhu/now
+# github.com/json-iterator/go v1.1.12
+## explicit; go 1.12
+# github.com/klauspost/compress v1.15.9
+## explicit; go 1.16
+github.com/klauspost/compress
+github.com/klauspost/compress/flate
+github.com/klauspost/compress/fse
+github.com/klauspost/compress/gzip
+github.com/klauspost/compress/huff0
+github.com/klauspost/compress/internal/cpuinfo
+github.com/klauspost/compress/internal/snapref
+github.com/klauspost/compress/s2
+github.com/klauspost/compress/snappy
+github.com/klauspost/compress/zstd
+github.com/klauspost/compress/zstd/internal/xxhash
+# github.com/klauspost/cpuid/v2 v2.0.9
+## explicit; go 1.13
+# github.com/leodido/go-urn v1.2.1
+## explicit; go 1.13
+# github.com/mattn/go-isatty v0.0.17
+## explicit; go 1.15
+# github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
+## explicit
+# github.com/modern-go/reflect2 v1.0.2
+## explicit; go 1.12
+# github.com/onsi/ginkgo v1.16.5
+## explicit; go 1.16
+# github.com/onsi/gomega v1.27.6
+## explicit; go 1.18
+# github.com/pelletier/go-toml/v2 v2.0.6
+## explicit; go 1.16
+# github.com/pierrec/lz4/v4 v4.1.15
+## explicit; go 1.14
+github.com/pierrec/lz4/v4
+github.com/pierrec/lz4/v4/internal/lz4block
+github.com/pierrec/lz4/v4/internal/lz4errors
+github.com/pierrec/lz4/v4/internal/lz4stream
+github.com/pierrec/lz4/v4/internal/xxh32
+# github.com/pingcap/errors v0.11.5-0.20210425183316-da1aaba5fb63
+## explicit; go 1.14
+github.com/pingcap/errors
+# github.com/pingcap/log v0.0.0-20210625125904-98ed8e2eb1c7
+## explicit; go 1.16
+github.com/pingcap/log
+# github.com/pingcap/tidb/parser v0.0.0-20221126021158-6b02a5d8ba7d
+## explicit; go 1.13
+github.com/pingcap/tidb/parser
+github.com/pingcap/tidb/parser/ast
+github.com/pingcap/tidb/parser/auth
+github.com/pingcap/tidb/parser/charset
+github.com/pingcap/tidb/parser/format
+github.com/pingcap/tidb/parser/model
+github.com/pingcap/tidb/parser/mysql
+github.com/pingcap/tidb/parser/opcode
+github.com/pingcap/tidb/parser/terror
+github.com/pingcap/tidb/parser/tidb
+github.com/pingcap/tidb/parser/types
+# github.com/prometheus/common v0.42.0
+## explicit; go 1.18
+# github.com/segmentio/kafka-go v0.4.39
+## explicit; go 1.15
+github.com/segmentio/kafka-go
+github.com/segmentio/kafka-go/compress
+github.com/segmentio/kafka-go/compress/gzip
+github.com/segmentio/kafka-go/compress/lz4
+github.com/segmentio/kafka-go/compress/snappy
+github.com/segmentio/kafka-go/compress/zstd
+github.com/segmentio/kafka-go/protocol
+github.com/segmentio/kafka-go/protocol/addoffsetstotxn
+github.com/segmentio/kafka-go/protocol/addpartitionstotxn
+github.com/segmentio/kafka-go/protocol/alterconfigs
+github.com/segmentio/kafka-go/protocol/alterpartitionreassignments
+github.com/segmentio/kafka-go/protocol/apiversions
+github.com/segmentio/kafka-go/protocol/consumer
+github.com/segmentio/kafka-go/protocol/createacls
+github.com/segmentio/kafka-go/protocol/createpartitions
+github.com/segmentio/kafka-go/protocol/createtopics
+github.com/segmentio/kafka-go/protocol/deletetopics
+github.com/segmentio/kafka-go/protocol/describeconfigs
+github.com/segmentio/kafka-go/protocol/describegroups
+github.com/segmentio/kafka-go/protocol/electleaders
+github.com/segmentio/kafka-go/protocol/endtxn
+github.com/segmentio/kafka-go/protocol/fetch
+github.com/segmentio/kafka-go/protocol/findcoordinator
+github.com/segmentio/kafka-go/protocol/heartbeat
+github.com/segmentio/kafka-go/protocol/incrementalalterconfigs
+github.com/segmentio/kafka-go/protocol/initproducerid
+github.com/segmentio/kafka-go/protocol/joingroup
+github.com/segmentio/kafka-go/protocol/leavegroup
+github.com/segmentio/kafka-go/protocol/listgroups
+github.com/segmentio/kafka-go/protocol/listoffsets
+github.com/segmentio/kafka-go/protocol/metadata
+github.com/segmentio/kafka-go/protocol/offsetcommit
+github.com/segmentio/kafka-go/protocol/offsetdelete
+github.com/segmentio/kafka-go/protocol/offsetfetch
+github.com/segmentio/kafka-go/protocol/produce
+github.com/segmentio/kafka-go/protocol/saslauthenticate
+github.com/segmentio/kafka-go/protocol/saslhandshake
+github.com/segmentio/kafka-go/protocol/syncgroup
+github.com/segmentio/kafka-go/protocol/txnoffsetcommit
+github.com/segmentio/kafka-go/sasl
+# github.com/shopspring/decimal v1.3.1
+## explicit; go 1.13
+github.com/shopspring/decimal
+# github.com/siddontang/go v0.0.0-20180604090527-bdc77568d726
+## explicit
+github.com/siddontang/go/hack
+# github.com/siddontang/go-log v0.0.0-20190221022429-1e957dd83bed
+## explicit
+github.com/siddontang/go-log/log
+github.com/siddontang/go-log/loggers
+# github.com/stretchr/testify v1.8.2
+## explicit; go 1.13
+# github.com/twitchyliquid64/golang-asm v0.15.1
+## explicit; go 1.13
+# github.com/ugorji/go/codec v1.2.9
+## explicit; go 1.11
+# go.uber.org/atomic v1.7.0
+## explicit; go 1.13
+go.uber.org/atomic
+# go.uber.org/multierr v1.6.0
+## explicit; go 1.12
+go.uber.org/multierr
+# go.uber.org/zap v1.18.1
+## explicit; go 1.13
+go.uber.org/zap
+go.uber.org/zap/buffer
+go.uber.org/zap/internal/bufferpool
+go.uber.org/zap/internal/color
+go.uber.org/zap/internal/exit
+go.uber.org/zap/internal/ztest
+go.uber.org/zap/zapcore
+go.uber.org/zap/zaptest
+# golang.org/x/arch v0.0.0-20210923205945-b76863e36670
+## explicit; go 1.17
+# golang.org/x/crypto v0.5.0
+## explicit; go 1.17
+# golang.org/x/net v0.8.0
+## explicit; go 1.17
+# golang.org/x/sys v0.7.0
+## explicit; go 1.17
+# golang.org/x/text v0.8.0
+## explicit; go 1.17
+golang.org/x/text/encoding
+golang.org/x/text/encoding/charmap
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/japanese
+golang.org/x/text/encoding/korean
+golang.org/x/text/encoding/simplifiedchinese
+golang.org/x/text/encoding/traditionalchinese
+golang.org/x/text/encoding/unicode
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/runes
+golang.org/x/text/transform
+# google.golang.org/protobuf v1.28.1
+## explicit; go 1.11
+# gopkg.in/natefinch/lumberjack.v2 v2.0.0
+## explicit
+gopkg.in/natefinch/lumberjack.v2
+# gopkg.in/yaml.v2 v2.4.0
+## explicit; go 1.15
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
+# gorm.io/driver/mysql v1.4.7
+## explicit; go 1.14
+gorm.io/driver/mysql
+# gorm.io/gorm v1.24.6
+## explicit; go 1.16
+gorm.io/gorm
+gorm.io/gorm/callbacks
+gorm.io/gorm/clause
+gorm.io/gorm/logger
+gorm.io/gorm/migrator
+gorm.io/gorm/schema
+gorm.io/gorm/utils
