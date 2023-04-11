@@ -1,14 +1,16 @@
-package publisher 
+package publisher
 
 import (
-	"encoding/json" 
-	"github.com/irononet/go-exchange/conf" 
-	"github.com/irononet/go-exchange/entities" 
-	"github.com/irononet/go-exchange/utils" 
-	"github.com/go-redis/redis" 
-	"github.com/siddontang/go-log/log" 
-	"sync" 
+	"encoding/json"
+	"strconv"
+	"sync"
 	"time"
+
+	"github.com/go-redis/redis"
+	"github.com/irononet/go-exchange/conf"
+	"github.com/irononet/go-exchange/entities"
+	"github.com/irononet/go-exchange/utils"
+	"github.com/siddontang/go-log/log"
 )
 
 type RedisStream struct{
@@ -56,7 +58,7 @@ func (r *RedisStream) Start(){
 						continue 
 					}
 
-					r.Sub.Publish(CHANNEL_ORDER.Format(string(order.ProductId), int64(order.UserId)), OrderMessage{
+					r.Sub.Publish(CHANNEL_ORDER.Format(strconv.Itoa((order.ProductId)), int64(order.UserId)), OrderMessage{
 						UserId: int64(order.UserId), 
 						Type: "order", 
 						Sequence: 0, 
@@ -64,7 +66,7 @@ func (r *RedisStream) Start(){
 						Price:  order.Price.String(), 
 						Size: order.Size.String(), 
 						Funds: "0", 
-						ProductId: string(order.ProductId), 
+						ProductId: strconv.Itoa(order.ProductId), 
 						Side: order.Side.String(), 
 						OrderType: order.Type.String(), 
 						CreatedAt: order.CreatedAt.Format(time.RFC3339), 

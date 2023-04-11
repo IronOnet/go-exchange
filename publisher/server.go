@@ -1,11 +1,13 @@
-package publisher 
+package publisher
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/gorilla/websocket" 
-	"github.com/siddontang/go-log/log" 
-	"io/ioutil" 
+	"io"
+	
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
+	"github.com/siddontang/go-log/log"
 )
 
 
@@ -40,7 +42,8 @@ func (s *Server) Ws(c *gin.Context){
 
 func (s *Server) Run(){
 	gin.SetMode(gin.ReleaseMode) 
-	gin.DefaultWriter = ioutil.Discard 
+	gin.DefaultWriter = io.Discard 
+	
 
 	r := gin.Default() 
 	r.GET(s.Path, s.Ws) 
