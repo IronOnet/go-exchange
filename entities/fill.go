@@ -28,4 +28,6 @@ type Fill struct {
 	DoneReason DoneReason `json:"done_reason"`
 	LogOffset  int64
 	LogSeq     int64
+
+	MessageSeq int64 `gorm:"index:o_m unique"`
 }
