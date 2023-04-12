@@ -8,11 +8,21 @@ require (
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/golang-jwt/jwt/v5 v5.0.0-rc.2
 	github.com/google/uuid v1.3.0
-	github.com/prometheus/common v0.42.0
+	github.com/prometheus/common v0.2.0
 	github.com/shopspring/decimal v1.3.1
 	github.com/siddontang/go-log v0.0.0-20190221022429-1e957dd83bed
 	gorm.io/driver/mysql v1.4.7
 	gorm.io/gorm v1.24.6
+)
+
+require (
+	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc // indirect
+	github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf // indirect
+	github.com/hashicorp/golang-lru v0.5.0 // indirect
+	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
+	github.com/sirupsen/logrus v1.2.0 // indirect
+	golang.org/x/term v0.6.0 // indirect
+	gopkg.in/alecthomas/kingpin.v2 v2.2.6 // indirect
 )
 
 require (
@@ -29,6 +39,7 @@ require (
 	github.com/go-playground/validator/v10 v10.11.2 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
+	//github.com/hashicorp/golang-lru v1.0.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -60,7 +71,6 @@ require (
 	golang.org/x/text v0.8.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

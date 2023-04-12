@@ -4,14 +4,14 @@ import (
 	"strconv"
 
 	"github.com/irononet/go-exchange/conf"
-	"github.com/irononet/go-exchange/services"
+	"github.com/irononet/go-exchange/service"
 	"github.com/siddontang/go-log/log"
 )
 
 func StartEngine() {
 	gexConfig := conf.GetConfig()
 
-	products, err := services.GetProducts()
+	products, err := service.GetProducts()
 	if err != nil {
 		panic(err)
 	}
