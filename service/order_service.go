@@ -209,7 +209,7 @@ func GetOrderByClientUid(userId int64, clientUuid string) (*entities.Order, erro
 	return mysql.SharedStore().GetOrderByClientUid(userId, clientUuid)
 }
 
-func GetOrderByUserId(userId int64, statuses []entities.OrderStatus, side *entities.Side, productId string,
+func GetOrdersByUserId(userId int64, statuses []entities.OrderStatus, side *entities.Side, productId string,
 	beforeId, afterId int64, limit int) ([]*entities.Order, error) {
 	return mysql.SharedStore().GetOrderByUserId(userId, statuses, side, productId, beforeId, afterId, limit)
 }
