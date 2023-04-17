@@ -88,6 +88,12 @@ func ChangePassword(ctx *gin.Context){
 	ctx.JSON(http.StatusOK, nil)
 }
 
+// DELETE /users/accessToken 
+func SignOut(ctx *gin.Context){
+	ctx.SetCookie("accessToken", "", -1, "/", "*", false, false) 
+	ctx.JSON(http.StatusOK, nil)
+}
+
 // GET /users/self 
 func GetUserSelf(ctx *gin.Context){
 	user := GetCurrentUser(ctx) 
