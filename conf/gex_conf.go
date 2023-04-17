@@ -13,6 +13,7 @@ type GexConfig struct {
 	PushServer PushServerConfig `json:"pushServer"`
 	RestServer RestServerConfig `json:"restServer"`
 	JwtSecret  string           `json:"jwtSecret"`
+	CORS CORSConfig				`json:"cors_config"`
 }
 
 type DataSourceConfig struct {
@@ -40,6 +41,10 @@ type PushServerConfig struct {
 
 type RestServerConfig struct {
 	Addr string `json:"addr"`
+}
+
+type CORSConfig struct{
+	AllowedOrigins []string 
 }
 
 var config GexConfig

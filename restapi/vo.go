@@ -32,6 +32,7 @@ type placeOrderRequest struct {
 	ClientOid   string  `json:"client_oid"`
 	ProductId   string  `json:"productId"`
 	Size        float64 `json:"size"`
+	Price 		float64	`json:"price"`
 	Funds       float64 `json:"funds"`
 	Side        string  `json:"side"`
 	Type        string  `json:"side"`
