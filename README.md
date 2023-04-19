@@ -1,49 +1,59 @@
-Certainly, here's an example of an excellent, compelling README file for the go-exchange project:
+# GEX
 
-# go-exchange (GEX)
+GEX is an open source crypto-currency exchange Software
 
-go-exchange is a Go package that provides a simple and easy-to-use interface for interacting with cryptocurrency exchanges. The package supports a wide range of exchanges, including Binance, Coinbase, Kraken, and more.
+## What is GEX
+
+Gex is an open-source crypto currency exchange software implementation in Go. 
+This project is inspired mainly by  (Peatio)[https://github.com/peatio/peatio]  
+Just like Peatio this software is designed to work with external frontend and 
+server components. 
 
 ## Features
 
-- Simple and easy-to-use API for interacting with cryptocurrency exchanges
-- Supports a wide range of exchanges, including Binance, Coinbase, and Kraken
-- Provides a range of useful tools and utilities for working with exchange data
-- Well-documented and easy to integrate into existing projects
+- High performance matching and trading engine
+- Accounting and order management
+- Multiple wallet support [WIP] 
+- Coin API [WIP] 
+- Kafka event API   
+- Usability and scalability 
+- Websocket API and high frequency trading support [WIP] 
+- Support for multiple digital curreneies (Bitcoin, ETH, Cardano, etc..) 
+- Support for ERC20 tokens 
+- API endpoint for FIAT deposits and payment gateways 
+- Admin dashboard and management tools cfr [Gex-Web](https://github.com/irononet/gex-admin) 
+- Top notch security
+- Well-documented [WIP]
 
-## Installation
+## System Overview 
 
-To install go-exchange, simply run:
-
-```
-go get github.com/irononet/go-exchange
-```
 
 ## Getting started
 
-To get started with go-exchange, you'll need to create an API key for your exchange account. Once you have your API key, you can create a new exchange object and start making API calls:
 
-```go
-import (
-    "github.com/irononet/go-exchange"
-)
+### Minimalistic local development environment 
 
-// Create a new exchange object
-exchange := exchange.NewExchange("binance", "API_KEY", "SECRET_KEY")
+#### Prerequisites 
 
-// Get the current price of Bitcoin in USD
-price, err := exchange.GetPrice("BTC/USD")
-if err != nil {
-    panic(err)
-}
+* [Docker](https://docs.docker.com/install) installed 
+* [Docker compose](https://docs.docker.com/compose/install/) installed 
+* Go 1.19 
 
-// Print the current price of Bitcoin
-fmt.Printf("Current Bitcoin price: %f USD\n", price)
-```
+### Install 
+
+To get started with go-exchange,  
+* git clone https://github.com/irononet/go-exchange.git 
+* RUN cd go-exchange
+* RUN go mod install // to install dependencies 
+* RUN go run main.go 
+
+To run the exchange with Docker-Compose
+* RUN cd go-exchange 
+* RUN docker-compose up 
 
 ## Documentation
 
-The go-exchange package is well-documented and provides detailed API documentation and examples for each supported exchange. You can view the documentation on the [official go-exchange website](https://irononet.github.io/go-exchange/).
+The go-exchange documentation is still a work in progress at this point. You can view the documentation on the [official go-exchange website](https://irononet.github.io/go-exchange/). [WIP]
 
 ## Contributing
 
@@ -51,13 +61,16 @@ If you'd like to contribute to go-exchange, please submit a pull request with yo
 
 ## License
 
-go-exchange is released under the MIT license. See [LICENSE](https://github.com/irononet/go-exchange/blob/master/LICENSE) for more information.
+GEX is released under the MIT license. See [LICENSE](https://github.com/irononet/go-exchange/blob/master/LICENSE) for more information.
 
 ## Contact
 
-If you have any questions or feedback about go-exchange, please feel free to contact us at support@go-exchange.com. We'd love to hear from you!
+If you have any questions or feedback about go-exchange, please feel free to contact us at arnaudwanetwork9@gmail.com We'd love to hear from you!
 
 ## Acknowledgments
 
-- This project was inspired by the excellent [python-binance](https://github.com/sammchardy/python-binance) library by Sam McHardy.
+- This project was inspired by the excellent:
+  - [gitbitex-spot](https://github.com/gitbitex/gitbitex-spot) by Gitbitex
+  - [peatio](https://github.com/openware/peatio) by Openware 
+
 - Thanks to the Go community for providing such a great language and ecosystem for building high-quality software.
