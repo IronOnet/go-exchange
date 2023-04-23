@@ -1,0 +1,55 @@
+version: "3.9" 
+
+services: 
+  gex-backend: 
+    build: . 
+    ports: 
+      - "8080:8080" 
+    environment: 
+      - GEX_ENV=prod 
+      - DB_PORT=3306 
+      - DB_USER=root 
+      - DB_PASSWORD=password 
+      - DB_NAME=gex 
+      - REDIS_HOST=redis 
+      - REDIS_PORT=6379 
+      - KAFKA_HOST=kafka 
+      - KAFKA_PORT=9092
+    depends_on: 
+      - db 
+      - redis 
+      - kafka 
+      - zookeeper
+
+  db: 
+    image: mysql:latest 
+    environment: 
+      - MYSQL_ROOT_PASSWORD=password 
+      - MYSQL_DATABASE=gex
+    ports: 
+      - "3306:3306" 
+    volumes:
+      - db_data:/var/lib/mysql
+
+  redis: 
+    image: redis:7 
+    ports: 
+      - "6379:6379"
+
+  kafka: 
+    image: ubuntu/kafka:latest 
+    environment: 
+      - KAFKA_ADVERTISED_HOST_NAME=kafka 
+      - KAFKA_ZOOKEPER_CONNECT=zookeeper:2181 
+    ports: 
+      - "9092:9092"
+    depends_on: 
+      - zookeeper 
+
+  zookeeper:
+    image: zookeeper:latest 
+    ports: 
+      - "2181:2181"
+
+volumes:
+  db_data: 
