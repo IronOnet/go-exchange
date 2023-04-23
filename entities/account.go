@@ -1,7 +1,6 @@
 package entities
 
 import (
-	
 	"github.com/shopspring/decimal"
 	"gorm.io/gorm"
 )
@@ -9,7 +8,7 @@ import (
 type Account struct {
 	gorm.Model
 	UserId    int64
-	Currency  string 
+	Currency  string
 	Available decimal.Decimal
 	Hold      decimal.Decimal
 }

@@ -77,51 +77,51 @@ func (s *TickerStream) newTickerMessage(log *matching.MatchLog) (*TickerMessage,
 		tick24h = &entities.Tick{}
 	}
 
-	ticks30d, err := service.GetTicksByProductId(s.ProductId, 24*60, 30) 
-	if err != nil{
-		return nil, err 
+	ticks30d, err := service.GetTicksByProductId(s.ProductId, 24*60, 30)
+	if err != nil {
+		return nil, err
 	}
-	tick30d := mergeTicks(ticks30d) 
-	if tick30d == nil{
-		tick30d = &entities.Tick{} 
+	tick30d := mergeTicks(ticks30d)
+	if tick30d == nil {
+		tick30d = &entities.Tick{}
 	}
 
 	return &TickerMessage{
-		Type: "ticker", 
-		TradeId: log.TradeId, 
-		Sequence: log.Sequence, 
-		Time: log.Time.Format(time.RFC3339), 
-		ProductId: strconv.Itoa(int(log.ProductId)), 
-		Price: log.Price.String(), 
-		Side: log.Side.String(), 
-		LastSize: log.Size.String(), 
-		Open24h: tick24h.Open.String(),
-		Low24h: tick24h.Low.String(), 
-		Volume24h: tick24h.Volume.String(), 
+		Type:      "ticker",
+		TradeId:   log.TradeId,
+		Sequence:  log.Sequence,
+		Time:      log.Time.Format(time.RFC3339),
+		ProductId: strconv.Itoa(int(log.ProductId)),
+		Price:     log.Price.String(),
+		Side:      log.Side.String(),
+		LastSize:  log.Size.String(),
+		Open24h:   tick24h.Open.String(),
+		Low24h:    tick24h.Low.String(),
+		Volume24h: tick24h.Volume.String(),
 		Volume30d: tick30d.Volume.String(),
-	}, nil 
+	}, nil
 }
 
-func mergeTicks(ticks []*entities.Tick) *entities.Tick{
-	var t *entities.Tick 
-	for i := range ticks{
-		tick := ticks[len(ticks)-1-i] 
-		if t == nil{
-			t = tick 
-		} else{
-			t.Close = tick.Close 
-			t.Low = decimal.Min(t.Low, tick.Low) 
-			t.High = decimal.Max(t.High, tick.High) 
+func mergeTicks(ticks []*entities.Tick) *entities.Tick {
+	var t *entities.Tick
+	for i := range ticks {
+		tick := ticks[len(ticks)-1-i]
+		if t == nil {
+			t = tick
+		} else {
+			t.Close = tick.Close
+			t.Low = decimal.Min(t.Low, tick.Low)
+			t.High = decimal.Max(t.High, tick.High)
 			t.Volume = t.Volume.Add(tick.Volume)
 		}
 	}
-	return t 
+	return t
 }
 
-func getLastTicker(productId string) *TickerMessage{
-	ticker, found := lastTickers.Load(productId) 
-	if !found{
-		return nil 
+func getLastTicker(productId string) *TickerMessage {
+	ticker, found := lastTickers.Load(productId)
+	if !found {
+		return nil
 	}
 	return ticker.(*TickerMessage)
 }

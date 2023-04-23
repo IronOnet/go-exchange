@@ -9,25 +9,25 @@ import (
 	"github.com/siddontang/go-log/log"
 )
 
-func StartServer(){
-	gexConfig := conf.GetConfig() 
+func StartServer() {
+	gexConfig := conf.GetConfig()
 
-	sub := NewSubscription() 
+	sub := NewSubscription()
 
-	NewRedisStream(sub).Start() 
+	NewRedisStream(sub).Start()
 
-	products, err := service.GetProducts() 
-	if err != nil{
+	products, err := service.GetProducts()
+	if err != nil {
 		panic(err)
 	}
 
-	for _, product := range products{
+	for _, product := range products {
 		productIdStr := strconv.Itoa(int(product.ID))
-		NewTickerStream(productIdStr, sub, matching.NewKafkaLogReader("tickerStream", productIdStr, gexConfig.Kafka.Brokers)).Start() 
-		NewMatchStream(productIdStr, sub, matching.NewKafkaLogReader("matchStream", productIdStr, gexConfig.Kafka.Brokers)).Start() 
-		NewOrderBookStream(productIdStr, sub, matching.NewKafkaLogReader("orderBookStream", productIdStr, gexConfig.Kafka.Brokers)).Start() 
+		NewTickerStream(productIdStr, sub, matching.NewKafkaLogReader("tickerStream", productIdStr, gexConfig.Kafka.Brokers)).Start()
+		NewMatchStream(productIdStr, sub, matching.NewKafkaLogReader("matchStream", productIdStr, gexConfig.Kafka.Brokers)).Start()
+		NewOrderBookStream(productIdStr, sub, matching.NewKafkaLogReader("orderBookStream", productIdStr, gexConfig.Kafka.Brokers)).Start()
 
-		go NewServer(gexConfig.PushServer.Addr, gexConfig.PushServer.Path, sub).Run() 
+		go NewServer(gexConfig.PushServer.Addr, gexConfig.PushServer.Path, sub).Run()
 
 		log.Info("websocket server ok")
 	}

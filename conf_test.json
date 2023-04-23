@@ -1,16 +1,11 @@
 {
     "dataSource": {
-      "driverName": "mysql",
-      "addr": "127.0.0.1:3306",
-      "database": "gex",
+      "driverName": "sqlite",
+      "addr": "",
+      "database": "gex.db",
       "user": "root",
       "password": "",
       "enableAutoMigrate": false
-    },
-    "testDataSource":{
-      "driverName": "sqlite", 
-      "database": "gex.db", 
-      "enableAutoMigrate": true
     },
     "redis": {
       "addr": ":6379",

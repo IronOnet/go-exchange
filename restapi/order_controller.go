@@ -191,27 +191,26 @@ func GetOrders(ctx *gin.Context) {
 	after, _ := strconv.ParseInt(ctx.Query("after"), 10, 64)
 	limit, _ := strconv.ParseInt(ctx.Query("limit"), 10, 64)
 
-	orders, err := service.GetOrdersByUserId(int64(GetCurrentUser(ctx).ID), statuses, side, productId, before, after, int(limit)) 
-	if err != nil{
-		ctx.JSON(http.StatusInternalServerError, newMessageVo(err)) 
-		return 
+	orders, err := service.GetOrdersByUserId(int64(GetCurrentUser(ctx).ID), statuses, side, productId, before, after, int(limit))
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, newMessageVo(err))
+		return
 	}
 
-	orderVos := []*orderVo{} 
-	for _, order := range orders{
-		orderVos = append(orderVos, newOrderVo(order)) 
-
+	orderVos := []*orderVo{}
+	for _, order := range orders {
+		orderVos = append(orderVos, newOrderVo(order))
 
 	}
 
-	var newBefore, newAfter int64 = 0, 0 
-	if len(orders) > 0{
-		newBefore = int64(orders[0].ID) 
-		newAfter = int64(orders[len(orders)-1].ID) 
+	var newBefore, newAfter int64 = 0, 0
+	if len(orders) > 0 {
+		newBefore = int64(orders[0].ID)
+		newAfter = int64(orders[len(orders)-1].ID)
 	}
 
-	ctx.Header("gex-before", strconv.FormatInt(newBefore, 10)) 
-	ctx.Header("gex-after", strconv.FormatInt(newAfter, 10)) 
+	ctx.Header("gex-before", strconv.FormatInt(newBefore, 10))
+	ctx.Header("gex-after", strconv.FormatInt(newAfter, 10))
 
 	ctx.JSON(http.StatusOK, orderVos)
 }

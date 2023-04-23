@@ -1,15 +1,19 @@
 package mysql
 
 import (
+	"os"
 	"reflect"
 	"sync"
 
 	"github.com/irononet/go-exchange/conf"
 	"github.com/irononet/go-exchange/entities"
 	"github.com/irononet/go-exchange/store"
+	"github.com/shopspring/decimal"
+
 	//log "github.com/prometheus/common"
 	"github.com/siddontang/go-log/log"
 	"gorm.io/driver/mysql"
+	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -41,12 +45,12 @@ func NewStore(db *gorm.DB) *Store {
 func initDb() error {
 	cfg := conf.GetConfig()
 
-	gexDB, err := gorm.Open(mysql.Open(cfg.DataSource.Addr), &gorm.Config{})
-	if err != nil {
-		return err
-	}
+	if os.Getenv("GEX_ENV") == "dev" {
+		gexDB, err := gorm.Open(sqlite.Open(cfg.TestDataSource.Database), &gorm.Config{})
+		if err != nil {
+			return err
+		}
 
-	if cfg.DataSource.EnableAutoMigrate {
 		var tables = []interface{}{
 			&entities.Account{},
 			&entities.Order{},
@@ -64,6 +68,60 @@ func initDb() error {
 			//log.Infof("migating database, table: %v", reflect.TypeOf(table))
 			if err = gexDB.AutoMigrate(table); err != nil {
 				return err
+			}
+		}
+
+		// Create mock data here
+		productBTCUSD := &entities.Product{
+			BaseCurrency: "USD", 
+			QuoteCurrency: "BTC", 
+			BaseMinSize: decimal.NewFromFloat(0.00001), 
+			BaseMaxSize: decimal.NewFromFloat(10000.0), 
+			QuoteMaxSize: decimal.NewFromFloat(4), 
+			QuoteMinSize: decimal.NewFromFloat(2),
+			BaseScale: 4, 
+			QuoteScale: 2,
+		}
+
+		productBTCUSDT := &entities.Product{
+			BaseCurrency: "USDT", 
+			QuoteCurrency: "BTC", 
+			BaseMinSize: decimal.NewFromFloat(0.00001), 
+			BaseMaxSize: decimal.NewFromFloat(10000.0), 
+			QuoteMaxSize: decimal.NewFromFloat(4), 
+			QuoteMinSize: decimal.NewFromFloat(2),
+			BaseScale: 4, 
+			QuoteScale: 2,
+		}
+
+		gexDB.Create(&productBTCUSD) 
+		gexDB.Create(&productBTCUSDT)
+
+	} else if os.Getenv("GEX_ENV") == "prod" {
+		gexDB, err := gorm.Open(mysql.Open(cfg.DataSource.Addr), &gorm.Config{})
+		if err != nil {
+			return err
+		}
+
+		if cfg.DataSource.EnableAutoMigrate {
+			var tables = []interface{}{
+				&entities.Account{},
+				&entities.Order{},
+				&entities.Product{},
+				&entities.Trade{},
+				&entities.Fill{},
+				&entities.User{},
+				&entities.Bill{},
+				&entities.Tick{},
+				&entities.Config{},
+			}
+
+			for _, table := range tables {
+				log.Infof("migrating database, table :%v", reflect.TypeOf(table))
+				//log.Infof("migating database, table: %v", reflect.TypeOf(table))
+				if err = gexDB.AutoMigrate(table); err != nil {
+					return err
+				}
 			}
 		}
 

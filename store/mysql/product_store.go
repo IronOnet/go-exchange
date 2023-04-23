@@ -1,6 +1,7 @@
 package mysql
 
 import (
+	"log"
 	"github.com/irononet/go-exchange/entities"
 	"gorm.io/gorm"
 )
@@ -17,5 +18,6 @@ func (s *Store) GetProductById(id string) (*entities.Product, error) {
 func (s *Store) GetProducts() ([]*entities.Product, error) {
 	var products []*entities.Product
 	err := s.db.Find(&products).Error
+	log.Printf("Error getting products %v", err.Error())
 	return products, err
 }

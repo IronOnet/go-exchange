@@ -12,17 +12,22 @@ require (
 	github.com/shopspring/decimal v1.3.1
 	github.com/siddontang/go-log v0.0.0-20190221022429-1e957dd83bed
 	gorm.io/driver/mysql v1.4.7
-	gorm.io/gorm v1.24.6
+	gorm.io/gorm v1.24.7-0.20230306060331-85eaf9eeda11
 )
 
 require (
 	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc // indirect
 	github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf // indirect
 	github.com/hashicorp/golang-lru v0.5.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
+	github.com/mattn/go-sqlite3 v1.14.15 // indirect
 	github.com/sirupsen/logrus v1.2.0 // indirect
+	github.com/spf13/cobra v1.7.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/term v0.6.0 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6 // indirect
+	gorm.io/driver/sqlite v1.5.0 // indirect
 )
 
 require (

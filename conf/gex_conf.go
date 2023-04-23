@@ -7,13 +7,14 @@ import (
 )
 
 type GexConfig struct {
-	DataSource DataSourceConfig `json:"dataSource"`
-	Redis      RedisConfig      `json:"redis"`
-	Kafka      KafkaConfig      `json:"kafka"`
-	PushServer PushServerConfig `json:"pushServer"`
-	RestServer RestServerConfig `json:"restServer"`
-	JwtSecret  string           `json:"jwtSecret"`
-	CORS CORSConfig				`json:"cors_config"`
+	DataSource     DataSourceConfig     `json:"dataSource"`
+	TestDataSource TestDataSourceConfig `json:"testDataSource"`
+	Redis          RedisConfig          `json:"redis"`
+	Kafka          KafkaConfig          `json:"kafka"`
+	PushServer     PushServerConfig     `json:"pushServer"`
+	RestServer     RestServerConfig     `json:"restServer"`
+	JwtSecret      string               `json:"jwtSecret"`
+	CORS           CORSConfig           `json:"cors_config"`
 }
 
 type DataSourceConfig struct {
@@ -22,6 +23,12 @@ type DataSourceConfig struct {
 	Database          string `json:"database"`
 	User              string `json:"user"`
 	Password          string `json:"password"`
+	EnableAutoMigrate bool   `json:"enableAutoMigrate"`
+}
+
+type TestDataSourceConfig struct {
+	DriverName        string `json:"drivername"`
+	Database          string `json:"database"`
 	EnableAutoMigrate bool   `json:"enableAutoMigrate"`
 }
 
@@ -43,8 +50,8 @@ type RestServerConfig struct {
 	Addr string `json:"addr"`
 }
 
-type CORSConfig struct{
-	AllowedOrigins []string 
+type CORSConfig struct {
+	AllowedOrigins []string
 }
 
 var config GexConfig
@@ -64,3 +71,5 @@ func GetConfig() *GexConfig {
 	})
 	return &config
 }
+
+

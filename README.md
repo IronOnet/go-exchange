@@ -51,6 +51,22 @@ To run the exchange with Docker-Compose
 * RUN cd go-exchange 
 * RUN docker-compose up 
 
+#### Database configuration 
+
+The app runs with a sqlite database in development and 
+a mysql database in production. to enable both mod 
+just set your environment variable to either "dev" or "prod" 
+with 
+```bash 
+export GEX_ENV="dev" 
+``` 
+to run the sqlite database in dev mode 
+or 
+```bash 
+export GEX_ENV="prod" 
+```
+to run the production database 
+
 ## Documentation
 
 The go-exchange documentation is still a work in progress at this point. You can view the documentation on the [official go-exchange website](https://irononet.github.io/go-exchange/). [WIP]
